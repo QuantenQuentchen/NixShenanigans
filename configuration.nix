@@ -139,6 +139,11 @@
   git
   gh
   git-credential-manager
+  ghidra
+  wine
+  winetricks
+  protontricks
+  protonup-qt
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
