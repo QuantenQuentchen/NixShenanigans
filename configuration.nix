@@ -137,6 +137,8 @@
   whatsapp-for-linux
   vesktop
   git
+  gh
+  git-credential-manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
