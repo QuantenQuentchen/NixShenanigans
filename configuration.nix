@@ -144,7 +144,14 @@
   winetricks
   protontricks
   protonup-qt
+  linux-wallpaperengine
   ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+  "freeimage-unstable-2021-11-01"
+  ];
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
