@@ -151,9 +151,11 @@ hardware.nvidia = {
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   wget
-  (discord.override {
-    withVencord = true;
-  })
+  #discord
+  #(discord.override {
+  #  withVencord = true;
+  #  withOpenASAR = true;
+  #})
   gparted
   lutris
   heroic
@@ -193,12 +195,6 @@ hardware.nvidia = {
   vulkan-tools
   gimp-with-plugins
   inkscape-with-extensions
-
-#  sweet-nova
-#  kdeApplications.kdeplasma-addons
-#  kdeApplications.kde-gtk-config
-#  plasma5Packages.khotkeys
-#  plasma5Packages.knewstuff
   ];
 
 
