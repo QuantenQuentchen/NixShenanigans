@@ -155,7 +155,7 @@ hardware.nvidia = {
   withOpenASAR = true;
   withVencord = true;
 })
-  mdam
+  mdadm
   gparted
   lutris
   heroic
