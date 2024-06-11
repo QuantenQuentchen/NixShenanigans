@@ -207,27 +207,26 @@ let
   '';
 in
 {
-
   vesktopMain = pkgs.vesktop.override {
     desktopFile = pkgs.writeText "vesktopMain.desktop" ''
-    [Desktop Entry]
-    Name=Vesktop Main
-    Exec=/bin/sh -c "${generateShellScript pkgs.vesktopMain}"
-    Icon=/home/quanti/nixos-config/icons/discord.svg
-    Type=Application
-    Categories=Network;InstantMessaging;
-  '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";;
+      [Desktop Entry]
+      Name=Vesktop Main
+      Exec=/bin/sh -c "${generateShellScript pkgs.vesktopMain}"
+      Icon=/home/quanti/nixos-config/icons/discord.svg
+      Type=Application
+      Categories=Network;InstantMessaging;
+    '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";
   };
 
   vesktopAlt = pkgs.vesktop.override {
     desktopFile = pkgs.writeText "vesktopAlt.desktop" ''
-    [Desktop Entry]
-    Name=Vesktop Alt
-    Exec=/bin/sh -c "${generateShellScript pkgs.vesktopAlt}"
-    Icon=/home/quanti/nixos-config/icons/discord_alt.svg
-    Type=Application
-    Categories=Network;InstantMessaging;
-  '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";;
+      [Desktop Entry]
+      Name=Vesktop Alt
+      Exec=/bin/sh -c "${generateShellScript pkgs.vesktopAlt}"
+      Icon=/home/quanti/nixos-config/icons/discord_alt.svg
+      Type=Application
+      Categories=Network;InstantMessaging;
+    '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";
   };
 }
 
