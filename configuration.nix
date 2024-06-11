@@ -151,8 +151,12 @@ hardware.nvidia = {
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   wget
-  discord
-  discord-ptb
+  (pkgs.discord.override {
+  withVencord = true;
+  })
+  (pkgs.discord-ptb.override {
+  withVencord = true;
+  })
   discord-canary
   gparted
   lutris
@@ -200,18 +204,11 @@ hardware.nvidia = {
 #  plasma5Packages.knewstuff
   ];
 
-let
-  generateShellScript = derivation: ''
-    #!/bin/sh
-    ${derivation}/bin/discord
-  '';
-in
-{
   vesktopMain = pkgs.vesktop.override {
     desktopFile = pkgs.writeText "vesktopMain.desktop" ''
       [Desktop Entry]
-      Name=Vesktop Main
-      Exec=/bin/sh -c "${generateShellScript pkgs.vesktopMain}"
+      Name=Discord Main
+      Exec=Discord
       Icon=/home/quanti/nixos-config/icons/discord.svg
       Type=Application
       Categories=Network;InstantMessaging;
@@ -221,14 +218,13 @@ in
   vesktopAlt = pkgs.vesktop.override {
     desktopFile = pkgs.writeText "vesktopAlt.desktop" ''
       [Desktop Entry]
-      Name=Vesktop Alt
-      Exec=/bin/sh -c "${generateShellScript pkgs.vesktopAlt}"
+      Name=Discord Alt
+      Exec=discord-ptb
       Icon=/home/quanti/nixos-config/icons/discord_alt.svg
       Type=Application
       Categories=Network;InstantMessaging;
     '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";
   };
-}
 
 services.xserver.desktopManager.customEntries = {
   vesktopMain = pkgs.vesktopMain;
