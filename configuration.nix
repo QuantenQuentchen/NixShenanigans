@@ -192,6 +192,7 @@ hardware.nvidia = {
   linux-wallpaperengine
   vulkan-tools
   gimp-with-plugins
+  inkscape-with-extensions
 #  sweet-nova
 #  kdeApplications.kdeplasma-addons
 #  kdeApplications.kde-gtk-config
