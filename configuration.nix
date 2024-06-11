@@ -151,19 +151,16 @@ hardware.nvidia = {
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   wget
-  (discord.overrideAttrs (oldAttrs: {
-    desktopItem = oldAttrs.desktopItem // {
-      icon = "/home/quanti/nixos-config/icons/discord.svg";
-      name = "Discord Main";
-    };
-  }).override {
-    withVencord = true;
-  })
-
+    (discord.overrideAttrs (oldAttrs: {
+      desktopItem = oldAttrs.desktopItem // {
+        icon = "/path/to/your/main/icon";
+      };
+    }).override {
+      withVencord = true;
+    })
     (discord-ptb.overrideAttrs (oldAttrs: {
       desktopItem = oldAttrs.desktopItem // {
-        icon = "/home/quanti/nixos-config/icons/discord_alt.svg";
-        name = "Discord Alt";
+        icon = "/path/to/your/alt/icon";
       };
     }).override {
       withVencord = true;
