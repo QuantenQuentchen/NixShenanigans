@@ -204,33 +204,6 @@ hardware.nvidia = {
 #  plasma5Packages.knewstuff
   ];
 
-  vesktopMain = pkgs.vesktop.override {
-    desktopFile = pkgs.writeText "vesktopMain.desktop" ''
-      [Desktop Entry]
-      Name=Discord Main
-      Exec=Discord
-      Icon=/home/quanti/nixos-config/icons/discord.svg
-      Type=Application
-      Categories=Network;InstantMessaging;
-    '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";
-  };
-
-  vesktopAlt = pkgs.vesktop.override {
-    desktopFile = pkgs.writeText "vesktopAlt.desktop" ''
-      [Desktop Entry]
-      Name=Discord Alt
-      Exec=discord-ptb
-      Icon=/home/quanti/nixos-config/icons/discord_alt.svg
-      Type=Application
-      Categories=Network;InstantMessaging;
-    '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";
-  };
-
-services.xserver.desktopManager.customEntries = {
-  vesktopMain = pkgs.vesktopMain;
-  vesktopAlt = pkgs.vesktopAlt;
-};
-
   nixpkgs.config.permittedInsecurePackages = [
   "freeimage-unstable-2021-11-01"
   ];
