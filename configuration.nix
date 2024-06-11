@@ -180,7 +180,7 @@ hardware.nvidia = {
   obs-studio
   conda
   whatsapp-for-linux
-  vesktop
+  #vesktop
   git
   gh
   git-credential-manager
@@ -199,6 +199,42 @@ hardware.nvidia = {
 #  plasma5Packages.khotkeys
 #  plasma5Packages.knewstuff
   ];
+
+let
+  generateShellScript = derivation: ''
+    #!/bin/sh
+    ${derivation}/bin/discord
+  '';
+in
+{
+
+  vesktopMain = pkgs.vesktop.override {
+    desktopFile = pkgs.writeText "vesktopMain.desktop" ''
+    [Desktop Entry]
+    Name=Vesktop Main
+    Exec=/bin/sh -c "${generateShellScript pkgs.vesktopMain}"
+    Icon=/home/quanti/nixos-config/icons/discord.svg
+    Type=Application
+    Categories=Network;InstantMessaging;
+  '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";;
+  };
+
+  vesktopAlt = pkgs.vesktop.override {
+    desktopFile = pkgs.writeText "vesktopAlt.desktop" ''
+    [Desktop Entry]
+    Name=Vesktop Alt
+    Exec=/bin/sh -c "${generateShellScript pkgs.vesktopAlt}"
+    Icon=/home/quanti/nixos-config/icons/discord_alt.svg
+    Type=Application
+    Categories=Network;InstantMessaging;
+  '' + pkgs.lib.optionalString (!pkgs.lib.isWindows) "X" "executable";;
+  };
+}
+
+services.xserver.desktopManager.customEntries = {
+  vesktopMain = pkgs.vesktopMain;
+  vesktopAlt = pkgs.vesktopAlt;
+};
 
   nixpkgs.config.permittedInsecurePackages = [
   "freeimage-unstable-2021-11-01"
