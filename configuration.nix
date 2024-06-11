@@ -47,6 +47,8 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -147,11 +149,11 @@
   protontricks
   protonup-qt
   linux-wallpaperengine
-  sweet-nova
-  kdeApplications.kdeplasma-addons
-  kdeApplications.kde-gtk-config
-  plasma5Packages.khotkeys
-  plasma5Packages.knewstuff
+#  sweet-nova
+#  kdeApplications.kdeplasma-addons
+#  kdeApplications.kde-gtk-config
+#  plasma5Packages.khotkeys
+#  plasma5Packages.knewstuff
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
