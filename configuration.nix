@@ -191,6 +191,7 @@ hardware.nvidia = {
   protonup-qt
   linux-wallpaperengine
   vulkan-tools
+  gimp-with-plugins
 #  sweet-nova
 #  kdeApplications.kdeplasma-addons
 #  kdeApplications.kde-gtk-config
