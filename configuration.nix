@@ -151,20 +151,12 @@ hardware.nvidia = {
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   wget
-    (discord.overrideAttrs (oldAttrs: {
-      desktopItem = oldAttrs.desktopItem // {
-        icon = "/path/to/your/main/icon";
-      };
-    }).override {
-      withVencord = true;
-    })
-    (discord-ptb.overrideAttrs (oldAttrs: {
-      desktopItem = oldAttrs.desktopItem // {
-        icon = "/path/to/your/alt/icon";
-      };
-    }).override {
-      withVencord = true;
-    })
+  (discord.override {
+    withVencord = true;
+  })
+  (discord-ptb.override {
+    withVencord = true;
+  })
   discord-canary
   gparted
   lutris
@@ -211,6 +203,33 @@ hardware.nvidia = {
 #  plasma5Packages.khotkeys
 #  plasma5Packages.knewstuff
   ];
+
+  discordMain = pkgs.discord.override {
+    desktopFile = pkgs.writeText "discordMain.desktop" ''
+      [Desktop Entry]
+      Name=Discord Main
+      Exec=Discord
+      Icon=/home/quanti/nixos-config/icons/discord.svg
+      Type=Application
+      Categories=Network;InstantMessaging;
+    '';
+  };
+
+  discordAlt = pkgs.discord-ptb.override {
+    desktopFile = pkgs.writeText "discordAlt.desktop" ''
+      [Desktop Entry]
+      Name=Discord Alt
+      Exec=discord-ptb
+      Icon=/home/quanti/nixos-config/icons/discord_alt.svg
+      Type=Application
+      Categories=Network;InstantMessaging;
+    '';
+  };
+
+services.xserver.desktopManager.customEntries = {
+  vesktopMain = pkgs.vesktopMain;
+  vesktopAlt = pkgs.vesktopAlt;
+};
 
   nixpkgs.config.permittedInsecurePackages = [
   "freeimage-unstable-2021-11-01"
