@@ -148,6 +148,10 @@
   protonup-qt
   linux-wallpaperengine
   sweet-nova
+  kdeApplications.kdeplasma-addons
+  kdeApplications.kde-gtk-config
+  plasma5Packages.khotkeys
+  plasma5Packages.knewstuff
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
