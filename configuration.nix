@@ -153,13 +153,6 @@ hardware.nvidia = {
   wget
   (discord.override {
     withVencord = true;
-    icon = pkgs.discord.icons.discord;
-  })
-  (discord-ptb.override {
-    withVencord = true;
-  })
-  (discord-canary.override {
-    withVencord = true;
   })
   gparted
   lutris
@@ -187,7 +180,7 @@ hardware.nvidia = {
   obs-studio
   conda
   whatsapp-for-linux
-  #vesktop
+  vesktop
   git
   gh
   git-credential-manager
@@ -200,7 +193,6 @@ hardware.nvidia = {
   vulkan-tools
   gimp-with-plugins
   inkscape-with-extensions
-
 
 #  sweet-nova
 #  kdeApplications.kdeplasma-addons
