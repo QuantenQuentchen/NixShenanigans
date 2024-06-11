@@ -153,11 +153,14 @@ hardware.nvidia = {
   wget
   (discord.override {
     withVencord = true;
+    icon = pkgs.discord.icons.discord;
   })
   (discord-ptb.override {
     withVencord = true;
   })
-  discord-canary
+  (discord-canary.override {
+    withVencord = true;
+  })
   gparted
   lutris
   heroic
@@ -198,20 +201,6 @@ hardware.nvidia = {
   gimp-with-plugins
   inkscape-with-extensions
 
-  (makeDesktopItem {
-    name = "discordMain";
-    desktopName = "Discord Main";
-    exec = "Discord";
-    icon = "/home/quanti/nixos-config/icons/discord.svg";
-    categories = ["Network""InstantMessaging"];
-  })
-  (makeDesktopItem {
-    name = "discordAlt";
-    desktopName = "Discord Alt";
-    exec = "discord-ptb";
-    icon = "/home/quanti/nixos-config/icons/discord_alt.svg";
-    categories = ["Network""InstantMessaging"];
-  })
 
 #  sweet-nova
 #  kdeApplications.kdeplasma-addons
