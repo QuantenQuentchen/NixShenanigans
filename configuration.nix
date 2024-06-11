@@ -197,6 +197,22 @@ hardware.nvidia = {
   vulkan-tools
   gimp-with-plugins
   inkscape-with-extensions
+
+  (makeDesktopItem {
+    name = "discordMain";
+    desktopName = "Discord Main";
+    exec = "Discord";
+    icon = "/home/quanti/nixos-config/icons/discord.svg";
+    categories = "Network;InstantMessaging;";
+  })
+  (makeDesktopItem {
+    name = "discordAlt";
+    desktopName = "Discord Alt";
+    exec = "discord-ptb";
+    icon = "/home/quanti/nixos-config/icons/discord_alt.svg";
+    categories = "Network;InstantMessaging;";
+  })
+
 #  sweet-nova
 #  kdeApplications.kdeplasma-addons
 #  kdeApplications.kde-gtk-config
@@ -204,27 +220,17 @@ hardware.nvidia = {
 #  plasma5Packages.knewstuff
   ];
 
-  discordMain = pkgs.discord.override {
-    desktopFile = pkgs.writeText "discordMain.desktop" ''
-      [Desktop Entry]
-      Name=Discord Main
-      Exec=Discord
-      Icon=/home/quanti/nixos-config/icons/discord.svg
-      Type=Application
-      Categories=Network;InstantMessaging;
-    '';
+nixpkgs.config.packageOverrides = pkgs: {
+  myDesktopItems = pkgs.copyDesktopItems {
+    src = pkgs.buildEnv {
+      name = "my-desktop-items";
+      paths = [
+        discordMain
+        discordAlt
+      ];
+    };
   };
-
-  discordAlt = pkgs.discord-ptb.override {
-    desktopFile = pkgs.writeText "discordAlt.desktop" ''
-      [Desktop Entry]
-      Name=Discord Alt
-      Exec=discord-ptb
-      Icon=/home/quanti/nixos-config/icons/discord_alt.svg
-      Type=Application
-      Categories=Network;InstantMessaging;
-    '';
-  };
+};
 
 services.xserver.desktopManager.customEntries = {
   vesktopMain = pkgs.vesktopMain;
