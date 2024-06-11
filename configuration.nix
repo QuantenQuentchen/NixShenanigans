@@ -151,12 +151,23 @@ hardware.nvidia = {
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   wget
-  (pkgs.discord.override {
-  withVencord = true;
+  (discord.overrideAttrs (oldAttrs: {
+    desktopItem = oldAttrs.desktopItem // {
+      icon = "/home/quanti/nixos-config/icons/discord.svg";
+      name = "Discord Main";
+    };
+  }).override {
+    withVencord = true;
   })
-  (pkgs.discord-ptb.override {
-  withVencord = true;
-  })
+
+    (discord-ptb.overrideAttrs (oldAttrs: {
+      desktopItem = oldAttrs.desktopItem // {
+        icon = "/home/quanti/nixos-config/icons/discord_alt.svg";
+        name = "Discord Alt";
+      };
+    }).override {
+      withVencord = true;
+    })
   discord-canary
   gparted
   lutris
