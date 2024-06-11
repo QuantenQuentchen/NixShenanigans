@@ -219,19 +219,6 @@ hardware.nvidia = {
 #  plasma5Packages.khotkeys
 #  plasma5Packages.knewstuff
   ];
-
-nixpkgs.config.packageOverrides = pkgs: {
-  myDesktopItems = pkgs.copyDesktopItems {
-    src = pkgs.buildEnv {
-      name = "my-desktop-items";
-      paths = [
-        discordMain
-        discordAlt
-      ];
-    };
-  };
-};
-
 services.xserver.desktopManager.customEntries = {
   vesktopMain = pkgs.vesktopMain;
   vesktopAlt = pkgs.vesktopAlt;
