@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      /home/quanti/Themes/arc-kde/default.nix
+      #/home/quanti/Themes/arc-kde/default.nix
     ];
 
   # Bootloader.
@@ -147,6 +147,7 @@
   protontricks
   protonup-qt
   linux-wallpaperengine
+  sweet-nova
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
