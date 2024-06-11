@@ -203,14 +203,14 @@ hardware.nvidia = {
     desktopName = "Discord Main";
     exec = "Discord";
     icon = "/home/quanti/nixos-config/icons/discord.svg";
-    categories = "Network;InstantMessaging;";
+    categories = ["Network""InstantMessaging"];
   })
   (makeDesktopItem {
     name = "discordAlt";
     desktopName = "Discord Alt";
     exec = "discord-ptb";
     icon = "/home/quanti/nixos-config/icons/discord_alt.svg";
-    categories = "Network;InstantMessaging;";
+    categories = ["Network""InstantMessaging"];
   })
 
 #  sweet-nova
@@ -219,10 +219,7 @@ hardware.nvidia = {
 #  plasma5Packages.khotkeys
 #  plasma5Packages.knewstuff
   ];
-services.xserver.desktopManager.customEntries = {
-  vesktopMain = pkgs.vesktopMain;
-  vesktopAlt = pkgs.vesktopAlt;
-};
+
 
   nixpkgs.config.permittedInsecurePackages = [
   "freeimage-unstable-2021-11-01"
