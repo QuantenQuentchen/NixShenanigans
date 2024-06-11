@@ -145,23 +145,22 @@ hardware.nvidia = {
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   wget
-  #discord
-  #(discord.override {
-  #  withVencord = true;
-  #  withOpenASAR = true;
-  #})
+  (pkgs.discord.override {
+  # remove any overrides that you don't want
+  withOpenASAR = true;
+  withVencord = true;
+})
+  mdam
   gparted
   lutris
   heroic
   steam
   spotify
-  cemu
   rpcs3
   ryujinx
   vscode
@@ -183,6 +182,14 @@ hardware.nvidia = {
   conda
   whatsapp-for-linux
   vesktop
+  webcord-vencord
+  #(vesktop.overrideAttrs (oldAttrs: {
+  #  name = "vesktop-custom";
+  #  # Add any custom configuration here
+  #  postInstall = ''
+  #    mv $out/bin/vesktop $out/bin/vesktop-custom
+  #  '';
+  #}))
   git
   gh
   git-credential-manager
@@ -191,7 +198,6 @@ hardware.nvidia = {
   winetricks
   protontricks
   protonup-qt
-  linux-wallpaperengine
   vulkan-tools
   gimp-with-plugins
   inkscape-with-extensions
