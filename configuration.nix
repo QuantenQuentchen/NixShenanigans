@@ -158,6 +158,7 @@ hardware.nvidia = {
   withOpenASAR = true;
   withVencord = true;
 })
+  jetbrains-toolbox
   wayland-utils
   glxinfo
   clinfo
@@ -172,9 +173,6 @@ hardware.nvidia = {
   ryujinx
   vscode
   rustup
-  jetbrains.idea-ultimate
-  jetbrains.clion
-  jetbrains.goland
   thunderbird
   android-studio
   arduino-ide
