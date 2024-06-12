@@ -152,6 +152,7 @@ hardware.nvidia = {
   wget
   aha
   pciutils
+  fwupd
   (pkgs.discord.override {
   # remove any overrides that you don't want
   withOpenASAR = true;
