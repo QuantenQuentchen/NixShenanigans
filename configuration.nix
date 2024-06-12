@@ -155,6 +155,10 @@ hardware.nvidia = {
   withOpenASAR = true;
   withVencord = true;
 })
+  wayland-utils
+  glxinfo
+  clinfo
+  dmraid
   mdadm
   gparted
   lutris
