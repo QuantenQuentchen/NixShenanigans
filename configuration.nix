@@ -172,10 +172,10 @@ hardware.nvidia = {
   lutris
   heroic
   (steam.overrideAttrs (oldAttrs: {
-  postInstall = oldAttrs.postInstall + ''
+  postInstall = ''
     substituteInPlace $out/share/applications/steam.desktop \
       --replace "Exec=steam %U" "Exec=steam -forcedesktopscaling=1.5 %U"
-    '';
+  '';
   }))
   spotify
   rpcs3
