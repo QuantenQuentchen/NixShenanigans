@@ -161,6 +161,7 @@ hardware.nvidia = {
   withOpenASAR = true;
   withVencord = true;
 })
+  python3
   jetbrains-toolbox
   wayland-utils
   glxinfo
@@ -170,7 +171,12 @@ hardware.nvidia = {
   gparted
   lutris
   heroic
-  steam
+  (steam.overrideAttrs (oldAttrs: {
+  postInstall = oldAttrs.postInstall + ''
+    substituteInPlace $out/share/applications/steam.desktop \
+      --replace "Exec=steam %U" "Exec=steam -forcedesktopscaling=1.5 %U"
+    '';
+  }))
   spotify
   rpcs3
   ryujinx
