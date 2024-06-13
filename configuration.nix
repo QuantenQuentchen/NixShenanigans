@@ -156,11 +156,6 @@ hardware.nvidia = {
   pciutils
   fwupd
   minecraft
-  (pkgs.discord.override {
-  # remove any overrides that you don't want
-  withOpenASAR = true;
-  withVencord = true;
-})
   python3
   jetbrains-toolbox
   wayland-utils
@@ -171,12 +166,7 @@ hardware.nvidia = {
   gparted
   lutris
   heroic
-  (steam.overrideAttrs (oldAttrs: {
-  postInstall = ''
-    substituteInPlace $out/share/applications/steam.desktop \
-      --replace "Exec=steam %U" "Exec=steam -forcedesktopscaling=1.5 %U"
-  '';
-  }))
+  steam
   spotify
   rpcs3
   ryujinx
@@ -197,13 +187,6 @@ hardware.nvidia = {
   whatsapp-for-linux
   vesktop
   webcord-vencord
-  #(vesktop.overrideAttrs (oldAttrs: {
-  #  name = "vesktop-custom";
-  #  # Add any custom configuration here
-  #  postInstall = ''
-  #    mv $out/bin/vesktop $out/bin/vesktop-custom
-  #  '';
-  #}))
   git
   gh
   git-credential-manager
