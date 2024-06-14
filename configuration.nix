@@ -198,6 +198,7 @@ hardware.nvidia = {
   vulkan-tools
   gimp-with-plugins
   inkscape-with-extensions
+  blockbench
   ];
 
 
