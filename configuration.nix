@@ -199,7 +199,7 @@ hardware.nvidia = {
   gimp-with-plugins
   inkscape-with-extensions
   blockbench
-  ksnip
+  vlc
   ];
 
 
