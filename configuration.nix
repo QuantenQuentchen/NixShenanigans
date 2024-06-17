@@ -200,6 +200,7 @@ hardware.nvidia = {
   inkscape-with-extensions
   blockbench
   vlc
+  session-desktop
   ];
 
 
