@@ -201,6 +201,8 @@ hardware.nvidia = {
   blockbench
   vlc
   session-desktop
+  python312Packages.conda
+  isoimagewriter
   ];
 
 
