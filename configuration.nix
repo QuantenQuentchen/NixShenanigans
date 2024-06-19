@@ -203,8 +203,10 @@ hardware.nvidia = {
   session-desktop
   python312Packages.conda
   isoimagewriter
+  virtualbox
   ];
 
+  virtualisation.virtualbox.host.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
   "freeimage-unstable-2021-11-01"
